@@ -26,8 +26,8 @@
 
 \pagestyle{fancy}
 \lhead{\hmwkAuthorName}
-\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle}
-\rhead{\firstxmark}
+\chead{\hmwkClass\ (\hmwkClassInstructor)}
+\rhead{\hmwkTitle}
 \lfoot{\lastxmark}
 \cfoot{\thepage}
 
@@ -86,12 +86,12 @@
 %   - Author
 %
 
-\newcommand{\hmwkTitle}{Homework\ \#2}
-\newcommand{\hmwkDueDate}{February 12, 2014}
-\newcommand{\hmwkClass}{Calculus}
-\newcommand{\hmwkClassTime}{Section A}
-\newcommand{\hmwkClassInstructor}{Professor Isaac Newton}
-\newcommand{\hmwkAuthorName}{\textbf{Josh Davis} \and \textbf{Davis Josh}}
+\newcommand{\hmwkTitle}{Assignment\ \#1}
+\newcommand{\hmwkDueDate}{September 29, 2020}
+\newcommand{\hmwkClass}{Bayesian Machine Learning}
+\newcommand{\hmwkClassTime}{}
+\newcommand{\hmwkClassInstructor}{Prof. Juho Lee}
+\newcommand{\hmwkAuthorName}{\textbf{Hyunsu Kim}}
 
 %
 % Title Page
@@ -100,7 +100,7 @@
 \title{
     \vspace{2in}
     \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
-    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate\ at 3:10pm}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate\ at 11:59pm}\\
     \vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
     \vspace{3in}
 }
@@ -231,21 +231,21 @@
             \node[state] (q_3) [right=of q_2] {$q_3$};
             \node[state] (q_4) [right=of q_3] {$q_4$};
             \path[->]
-                (q_0)
-                    edge [loop above] node {0} (q_0)
-                    edge node {1} (q_1)
-                (q_1)
-                    edge node {0} (q_2)
-                    edge [bend right=-30] node {1} (q_3)
-                (q_2)
-                    edge [bend left] node {1} (q_0)
-                    edge [bend right=-30] node {0} (q_4)
-                (q_3)
-                    edge node {1} (q_2)
-                    edge [bend left] node {0} (q_1)
-                (q_4)
-                    edge node {0} (q_3)
-                    edge [loop below] node {1} (q_4);
+            (q_0)
+            edge [loop above] node {0} (q_0)
+            edge node {1} (q_1)
+            (q_1)
+            edge node {0} (q_2)
+            edge [bend right=-30] node {1} (q_3)
+            (q_2)
+            edge [bend left] node {1} (q_0)
+            edge [bend right=-30] node {0} (q_4)
+            (q_3)
+            edge node {1} (q_2)
+            edge [bend left] node {0} (q_1)
+            (q_4)
+            edge node {0} (q_3)
+            edge [loop below] node {1} (q_4);
         \end{tikzpicture}
         \caption{DFA, \(A\), this is really beautiful, ya know?}
         \label{fig:multiple5}
@@ -267,15 +267,15 @@
     \begin{table}[ht]
         \centering
         \begin{tabular}{c || c | c | c | c | c}
-            & \(x \mod 5 = 0\)
-            & \(x \mod 5 = 1\)
-            & \(x \mod 5 = 2\)
-            & \(x \mod 5 = 3\)
-            & \(x \mod 5 = 4\)
+                   & \(x \mod 5 = 0\)
+                   & \(x \mod 5 = 1\)
+                   & \(x \mod 5 = 2\)
+                   & \(x \mod 5 = 3\)
+                   & \(x \mod 5 = 4\)
             \\
             \hline
-            \(x0\) & 0 & 2 & 4 & 1 & 3 \\
-            \(x1\) & 1 & 3 & 0 & 2 & 4 \\
+            \(x0\) & 0                & 2 & 4 & 1 & 3 \\
+            \(x1\) & 1                & 3 & 0 & 2 & 4 \\
         \end{tabular}
     \end{table}
 
@@ -290,12 +290,12 @@
     \begin{algorithm}[]
         \begin{algorithmic}[1]
             \Function{Quick-Sort}{$list, start, end$}
-                \If{$start \geq end$}
-                    \State{} \Return{}
-                \EndIf{}
-                \State{} $mid \gets \Call{Partition}{list, start, end}$
-                \State{} \Call{Quick-Sort}{$list, start, mid - 1$}
-                \State{} \Call{Quick-Sort}{$list, mid + 1, end$}
+            \If{$start \geq end$}
+            \State{} \Return{}
+            \EndIf{}
+            \State{} $mid \gets \Call{Partition}{list, start, end}$
+            \State{} \Call{Quick-Sort}{$list, start, mid - 1$}
+            \State{} \Call{Quick-Sort}{$list, mid + 1, end$}
             \EndFunction{}
         \end{algorithmic}
         \caption{Start of QuickSort}
@@ -381,10 +381,10 @@
         \begin{split}
             \E[\hat{\beta_1}]
             &= \E \left[ \frac{
-                \sum {x_i Y_i}
-            }{
-                \sum x_i^2
-            }\right]
+                    \sum {x_i Y_i}
+                }{
+                    \sum x_i^2
+                }\right]
             \\
             &= \frac{
                 \sum {x_i \E[Y_i]}
@@ -424,10 +424,10 @@
         \begin{split}
             \Var[\hat{\beta_1}]
             &= \Var \left[ \frac{
-                \sum {x_i Y_i}
-            }{
-                \sum x_i^2
-            }\right]
+                    \sum {x_i Y_i}
+                }{
+                    \sum x_i^2
+                }\right]
             \\
             &=
             \frac{
@@ -534,6 +534,12 @@
     \(\int_0^1 (1 - x^2) \dx\)
     and
     \(\int_1^{\infty} \frac{1}{x^2} \dx\).
+\end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem}[20]
+    HI
 \end{homeworkProblem}
 
 \end{document}
