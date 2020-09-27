@@ -5,7 +5,40 @@
         \vspace{3mm}
         \(\Var[X] = \E[X^2] - \E[X]^2 = \int_{\theta}^{\infty} x^2e^{\theta - x} \dx - (1 + \theta)^2 = \theta^2 + 2(1 + \theta) - (1 + \theta)^2 = 1 \)
     \end{center}
+\vspace{3mm}
+    (b) To show unbiasedness, compare $\theta$ with the exepectation. Note $X_i$'s are i.i.d., and $\E[X_i] = 1 + \theta$ in (a):
 
-    (b)
-
+    \[
+        \begin{split}
+            \E[\hat{\theta}_n] &= \E[\frac{1}{n}\sum^{n}_{i=1}(X_i - 1)]
+            \\
+            &= \frac{1}{n}\sum^{n}_{i=1}\E[X_i - 1]
+            \\
+            &= \frac{1}{n}\sum^{n}_{i=1}(\E[X_i] - 1)
+            \\
+            &= \frac{1}{n}\sum^{n}_{i=1}((1 + \theta) - 1)
+            \\
+            &= \frac{1}{n}\sum^{n}_{i=1}\theta
+            \\
+            &= \frac{1}{n}(n\theta)
+            \\
+            &= \theta
+        \end{split}
+    \]
+\vspace{3mm}
+    (c) Let $Y_i = X_i - 1$. Then, $\E[Y_i] = \theta$ and $\Var[Y_i] = 1$. Now, according to (b) and Central Limit Theorem,
+    \[
+        \frac{\hat{\theta}_n - \theta}{1/\sqrt{n}} \xrightarrow{d} \mathcal{N}(0, 1)
+    \]
+    \\
+    holds. Then, $100(1-\alpha) \% $ confidence interval of $\theta$ is 
+    $[\hat{\theta}_n - \frac{\Phi^{-1}(1-\frac{\alpha}{2})}{\sqrt{n}}, \hat{\theta}_n - \frac{\Phi^{-1}(\frac{\alpha}{2})}{\sqrt{n}}]$
+    where $\Phi$ is Cumulative Density Function (CDF) of unit normal distribution.
+    \\\\
+\vspace{1mm}
+    (d) According to given fact and that unit normal distribution is an even function, 
+    $\Phi^{-1}(0.025) = -1.96$ and $\Phi^{-1}(0.975) = 1.96$. Thus, 95\% confidence interval of 
+    $\theta$ is $[11.33 - \frac{1.96}{\sqrt{3}}, 11.33 + \frac{1.96}{\sqrt{3}}] = [10.20, 12.46]$.
+    It is weird that the observed data 10.0 is contradictory for any $\theta$ in the obtained confidence interval according to the PDF of $X$.
+    
 \end{homeworkProblem}

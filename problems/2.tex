@@ -1,0 +1,49 @@
+\begin{homeworkProblem}
+
+    \begin{enumerate}
+        \item The proof is straightforward:
+        \begin{align*}
+            \mu(B) &= \mu(B \cap (A \mathbin{\mathaccent\cdot\cup} A^c))
+            \\
+            &= \mu((B \cap A) \mathbin{\mathaccent\cdot\cup} (B \cap A^c))
+            && \text{$\because$ distributive law}
+            \\
+            &= \mu(B \cap A) + \mu(B \cap A^c)
+            && \text{$\because$ countable additivity of $\mu$}
+            \\
+            &= \mu(A) + \mu(B \cap A^c)
+            && \text{$\because A \subset B \implies B \cap A = A$}
+            \\
+            &\geq \mu(A)
+            && \text{$\because$ $\mu(B \cap A^c) \geq 0$ : nonnegativity of $\mu$}
+        \end{align*}
+        \item Use induction. (Base case) We first show it holds for $n = 1$: \[
+            \begin{split}
+                \mu(\bigcup^1_{i=1}A_i) &= \mu(A_1)
+                \\
+                &= \sum^1_{i=1}\mu(A_i)
+                \\
+                &\leq \sum^1_{i=1}\mu(A_i)
+            \end{split}
+        \] (Inductive case) Assume it holds for $n = k$. Want to show it holds for $n = k + 1:$
+            \begin{align*}
+                \mu(\bigcup^{k+1}_{i=1}A_i) &= \mu(\bigcup^{k}_{i=1}A_i \cup A_{k+1})
+                \\
+                &= \mu(\bigcup^{k}_{i=1}A_i \mathbin{\mathaccent\cdot\cup} (A_{k+1} - \bigcup^{k}_{i=1}A_i))
+                && \text{$\because$ simple Venn Diagram argument}
+                \\
+                &= \mu(\bigcup^{k}_{i=1}A_i) + \mu(A_{k+1} - \bigcup^{k}_{i=1}A_i)
+                && \text{$\because$ countable additivity of $\mu$}
+                \\
+                &\leq \mu(\bigcup^{k}_{i=1}A_i) + \mu(A_{k+1})
+                && \text{$\because$ $(A_{k+1} - \bigcup^{k}_{i=1}A_i) \subseteq A_{k+1}$ and 1.}
+                \\
+                &\leq \sum^k_{i=1}\mu(A_i) + \mu(A_{k+1})
+                && \text{$\because$ inductive hypothesis}
+                \\
+                &= \sum^{k+1}_{i=1}\mu(A_i)
+            \end{align*}
+        \qed
+    \end{enumerate}
+
+\end{homeworkProblem}
