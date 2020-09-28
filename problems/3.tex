@@ -1,0 +1,24 @@
+\begin{homeworkProblem}
+    To show the asserted convergence in probability, want to show 
+    \begin{align*}
+            \lim_{n \to \infty}\mathbb{P}(|\overline{X}_n - \E[X_1]| > \epsilon) = 0
+    \end{align*}
+    for any $\epsilon > 0$. Note $\overline{X}_n = \frac{X_1 + \cdots + X_n}{n}$ is 
+    a sample mean of i.i.d. random variables so that
+    $\E[\overline{X}_n] = \E[X_1]$ and $\Var[\overline{X}_n] = \frac{\Var[X_1]^2}{n}$.
+    Using Chebyshev's inequality for $k > 0$:
+    \begin{align}
+        \mathbb{P}(|\overline{X}_n - \E[X_1]| \geq k\frac{\Var[X_1]}{\sqrt{n}}) &\leq \frac{1}{k^2}
+    \end{align}
+    holds. Now, let $k = \frac{\sqrt{n}\epsilon}{\Var[X_1]}$. Then, (1) becomes as follows:
+    \begin{align*}
+        \mathbb{P}(|\overline{X}_n - \E[X_1]| \geq \epsilon) &\leq \frac{Var[X_1]^2}{n \epsilon^2}
+    \end{align*}
+    Then, as we take $n \to \infty$ on both sides of inequality:
+    \begin{align*}
+        \lim_{n \to \infty}\mathbb{P}(|\overline{X}_n - \E[X_1]| > \epsilon) \leq \lim_{n \to \infty} \frac{Var[X_1]^2}{n \epsilon^2} = 0
+    \end{align*}
+    holds for any $\epsilon > 0$.
+    \qed
+
+\end{homeworkProblem}
