@@ -35,9 +35,12 @@
     where $\Phi$ is Cumulative Density Function (CDF) of unit normal distribution.
     \\\\
 \vspace{1mm}
-    (d) According to given fact and that unit normal distribution is an even function, 
+    (d) From observations, we can easily compute $\hat{\theta}_3 = \frac{1}{3}\{(10.0 - 1) + (12.0 - 1) + (15.0 - 1)\} = 11.33$\,. 
+    According to given fact and that unit normal distribution is an even function, 
     $\Phi^{-1}(0.025) = -1.96$ and $\Phi^{-1}(0.975) = 1.96$. Thus, 95\% confidence interval of 
     $\theta$ is $[11.33 - \frac{1.96}{\sqrt{3}}, 11.33 + \frac{1.96}{\sqrt{3}}] = [10.20, 12.46]$.
     It is weird that the observed data 10.0 is contradictory for any $\theta$ in the obtained confidence interval according to the PDF of $X$.
-    
+    Such odd situation is indeed expected to happen because of the small sample size. ($n = 3$) 
+    Also, the computed confidence interval is based on frequentist approach, of which ``95\%'' stands for how frequently
+    would $\theta$ be contained in the interval as we repeat the procedure of computing confidence interval.
 \end{homeworkProblem}

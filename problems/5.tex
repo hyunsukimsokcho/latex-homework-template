@@ -1,0 +1,56 @@
+\begin{homeworkProblem}
+    Use the change of variable
+    \begin{center}
+        $(Y_1, \cdots, Y_{n-1}, Z) = g(X_1, \cdots, X_n)$
+    \end{center}
+    to compute $f_Y$ from $f_X$ by
+    \begin{center}
+        $f_Y(y_1, \cdots, y_n) = f_X(g^{-1}(y_1, \cdots, y_n))|J_{g^{-1}}|$
+    \end{center}
+    where
+    \begin{center}
+        $f_X(x_1, \cdots, x_n) = \prod^{n}_{i=1}\frac{x_i^{\alpha_i-1}e^{x_i}}{\Gamma(\alpha_i)}$
+    \end{center}
+    is the joint density of $X_i$'s. (i.i.d. random variables) We need to compute the determinant of Jacobian of $g^{-1}$.
+    Note that
+    \begin{center}
+        $X_i = Y_iZ$, \,\, $i = 1, \cdots, n - 1$ \\
+        $X_n = Z - (X_1 + \cdots + X_{n-1}) = Z - (Y_1Z + \cdots + Y_{n-1}Z) = Z(1 - Y_1 - \cdots - Y_{n-1})$.
+    \end{center}
+    Then,
+    \begin{align*}
+        |J_{g^{-1}}| &= \begin{vmatrix}
+            z & 0 & \cdots & 0 & y_1 \\ 
+            0 & z & \cdots & 0 & y_2 \\ 
+            \vdots & \vdots & & \vdots & \vdots \\
+            0 & 0 & \cdots & z & y_{n-1} \\ 
+            -z & -z & \cdots & -z & 1 - y_1 - \cdots - y_{n-1} \notag
+            \end{vmatrix}
+        \\
+        &= \begin{vmatrix}
+            z & 0 & \cdots & 0 & y_1 \\ 
+            0 & z & \cdots & 0 & y_2 \\ 
+            \vdots & \vdots & & \vdots & \vdots \\
+            0 & 0 & \cdots & z & y_{n-1} \\ 
+            0 & 0 & \cdots & 0 & 1 \notag
+            \end{vmatrix}
+        && \text{$\because$ invariant under elementary row operations}
+        \\
+        &= z^{n-1}.
+        && \text{$\because$ upper triangular matrix}
+    \end{align*}
+    Now, we get the joint density of $Y_1, \cdots, Y_{n-1}, Z$:
+    \begin{center}
+        $f(y_1, \cdots, y_{n-1}, z) = \frac{y_1^{\alpha_1 - 1} \cdots y_{n-1}^{\alpha_{n-1} - 1}(1 - y_1 - \cdots - y_{n-1})^{\alpha_n - 1}}{\prod^{n}_{i=1}\Gamma(\alpha_i)}z^{\sum^n_{i=1}\alpha_i - 1}e^{-z}$.
+    \end{center}
+    Finally, marginalize out $z$ together with the definition of Gamma function\,($\Gamma$), to get $f_Y$:
+    \begin{center}
+        $f(y_1, \cdots, y_{n-1}) = \frac{\Gamma(\sum^{n}_{i=1}\alpha_i)}{\prod^{n}_{i=1}\Gamma(\alpha_i)}y_1^{\alpha_1 - 1} \cdots y_{n-1}^{\alpha_{n-1} - 1}(1 - y_1 - \cdots - y_{n-1})^{\alpha_n - 1}$
+    \end{center}
+    or,
+    \begin{center}
+        $f_Y(y_1, \cdots, y_n) = \frac{\Gamma(\sum^{n}_{i=1}\alpha_i)}{\prod^{n}_{i=1}\Gamma(\alpha_i)}\prod^{n}_{i=1}y_i^{\alpha_i - 1}$
+    \end{center}
+    by abuse of notation. (since $y_n$ is dependent to other $y_i$'s)
+    \qed
+\end{homeworkProblem}
