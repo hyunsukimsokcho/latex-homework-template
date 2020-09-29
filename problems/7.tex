@@ -1,0 +1,15 @@
+\begin{homeworkProblem}
+  The procedure is very similar with that in Problem 5.
+  \begin{align*}
+      \mathbb{P}(|X_n + Y_n - (X + Y)| > \epsilon) &\leq \mathbb{P}(|X_n - X| > \frac{\epsilon}{2} \,\text{or}\, |Y_n - Y| > \frac{\epsilon}{2})
+      && \text{$\because$ contraposition and triangular ineq.}
+      \\
+      &\leq \mathbb{P}(|X_n - X| > \frac{\epsilon}{2}) + \mathbb{P}(|Y_n - Y| > \frac{\epsilon}{2})
+      && \text{$\because$ union bound}
+      \\
+      &\to 0 \,\,\text{as}\,\, n \to \infty.
+      && \text{$\because X_n \xrightarrow{p} X$ and $Y_n \xrightarrow{p} Y$}
+  \end{align*}
+  Thus, $X_n + Y_n \xrightarrow{p} X + Y$.
+  \qed
+\end{homeworkProblem}
